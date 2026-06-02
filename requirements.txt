@@ -1,0 +1,17 @@
+# Reference environment that reproduces the manuscript headline exactly
+# (X-BEE bayes_shrink RMSE = 64.61 EUR M). These versions are PINNED because the
+# Bayesian-shrinkage combination solves an SLSQP quadratic program whose solution
+# is mildly sensitive to the scikit-learn / scipy build; older releases (e.g.
+# scikit-learn 1.7) shift the X-BEE RMSE to ~67 while leaving its #1 ranking and
+# all qualitative conclusions unchanged. Pin these to obtain the exact figures.
+numpy==2.3.5
+pandas==3.0.0
+scipy==1.17.0
+scikit-learn==1.8.0
+statsmodels==0.14.6
+# optional (full benchmark / explainability extras; not needed for the headline)
+xgboost==3.2.0
+lightgbm==4.6.0
+lime>=0.2
+torch>=2.0          # any CUDA/CPU build; deep-learning baselines only
+matplotlib==3.10.8
