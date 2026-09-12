@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "purpose": "Inflationary-regime robustness (second-round revision)",
+    "aggregation": "bayes_shrink",
+    "test_period": "2022Q2..2024Q2",
+    "regime_definitions": {
+      "inflation_surge_ecb_tightening": "2022Q2-2023Q3: HICP avg ~7.7% y/y (peak 10.6% Oct-2022); ECB deposit facility rate -0.50% -> 4.00%",
+      "disinflation_rate_plateau": "2023Q4-2024Q2: HICP < 3% y/y; deposit facility rate at 4.00%"
+    }
+  },
+  "predictive_stability": {
+    "inflation_surge_ecb_tightening": {
+      "rmse": 71.28680970134904,
+      "r2": 0.9516615748451006,
+      "mape": 0.5071651129905326,
+      "n_quarters": 6,
+      "quarters": [
+        "2022Q2",
+        "2022Q3",
+        "2022Q4",
+        "2023Q1",
+        "2023Q2",
+        "2023Q3"
+      ],
+      "mae": 58.03464919334571,
+      "directional_accuracy": 1.0
+    },
+    "disinflation_rate_plateau": {
+      "rmse": 50.16056875367885,
+      "r2": 0.9108214837423781,
+      "mape": 0.3289905233951295,
+      "n_quarters": 3,
+      "quarters": [
+        "2023Q4",
+        "2024Q1",
+        "2024Q2"
+      ],
+      "mae": 40.44777662006709,
+      "directional_accuracy": 1.0
+    },
+    "full_test": {
+      "rmse": 65.01205306834841,
+      "r2": 0.9833341707704033,
+      "mape": 0.4477735831253982,
+      "n_quarters": 9,
+      "quarters": [
+        "2022Q2",
+        "2022Q3",
+        "2022Q4",
+        "2023Q1",
+        "2023Q2",
+        "2023Q3",
+        "2023Q4",
+        "2024Q1",
+        "2024Q2"
+      ],
+      "mae": 52.17235833558617,
+      "directional_accuracy": 1.0
+    }
+  },
+  "attribution_stability": {
+    "feature_names": [
+      "time_trend",
+      "lines_lag1",
+      "revenue_lag1",
+      "oecd_ict_value_added_millions_usd",
+      "rpl_lag1",
+      "oecd_ict_employment_thousands",
+      "ine_personal_ocupado",
+      "ine_gasto_id_millones_eur",
+      "arima_forecast"
+    ],
+    "regime_A_mean_abs_shap_pct": {
+      "time_trend": 17.02525137173126,
+      "lines_lag1": 29.49956890608496,
+      "revenue_lag1": 6.985276237909339,
+      "oecd_ict_value_added_millions_usd": 10.765518091570788,
+      "rpl_lag1": 4.184678156117883,
+      "oecd_ict_employment_thousands": 9.033897865843603,
+      "ine_personal_ocupado": 11.023528206407974,
+      "ine_gasto_id_millones_eur": 3.712155132283322,
+      "arima_forecast": 7.770126032050852
+    },
+    "regime_B_mean_abs_shap_pct": {
+      "time_trend": 12.668075160152299,
+      "lines_lag1": 27.742054626182757,
+      "revenue_lag1": 9.700665454219909,
+      "oecd_ict_value_added_millions_usd": 4.647851484727427,
+      "rpl_lag1": 11.036074045229952,
+      "oecd_ict_employment_thousands": 11.08602846261186,
+      "ine_personal_ocupado": 15.363692897426523,
+      "ine_gasto_id_millones_eur": 2.7508918559509077,
+      "arima_forecast": 5.004666013498396
+    },
+    "spearman_rank_corr_between_regimes": 0.75,
+    "spearman_pvalue": 0.019942126131992522
+  }
+}
